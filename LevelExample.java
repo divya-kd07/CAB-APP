@@ -17,26 +17,26 @@ public class LevelExample {
 	/**
 	 * @param args
 	 */
-	public static int cabb(String cab,int d) {
-		int z = 0;
+	public static int cabb(String cab,int km) {
+		int amount = 0;
 		if(cab.equals("MICRO")) {
-			z=d*10;
+			amount=km*10;
 		}
 		else if(cab.equals("MINI"))
 		{
-			z=d*15;
+			amount=km*15;
 		}
 		else {
-			if(cab.equals("MINI"))
+			if(cab.equals("PRIME"))
 			{
-			z=d*20;
+			amount=km*20;
 			}
 			else 
 			{
 				System.out.println("Sorry.....No services....");
 			}
 		}
-		return z;
+		return amount;
 		
 	}
 	public static void main(String[] args) {
@@ -87,17 +87,17 @@ public class LevelExample {
 		System.out.println("CAB TYPE : ");
 	    String cab=o.next();
 		System.out.println("Number Of Kilometers : ");//Get the cab type and kilometer from the user
-		int d=o.nextInt();
-		int x=cabb(cab,d);
-		System.out.println("Your total bill amount is : "+x+" Rs/-");//calculate the bill Amount
+		int km=o.nextInt();
+		int amount1=cabb(cab,km);
+		System.out.println("Your total bill amount is : "+amount1+" Rs/-");//calculate the bill Amount
 		
 		//Level 4
 		
 		System.out.println("                       **************WELCOME*****************                     ");
 		System.out.println("                            ****GOODS AND SERVICES TAX****                                       ");
-		double y=x;//Converting integer to double
-		double u=y+(y*0.07);//Calculating the GST
-		System.out.println("Your GST amount is : "+u+" Rs/-");//calculate the GST
+		double amount2=amount1;//Converting integer to double
+		double gst=amount2+(amount2*0.07);//Calculating the GST
+		System.out.println("Your GST amount is : "+gst+" Rs/-");//calculate the GST
 		
 		//Level 5
 		
@@ -120,18 +120,18 @@ public class LevelExample {
 	    //Level 6 And Level 7
 	    
 		System.out.println("                       **************WELCOME*****************                     ");
-		System.out.println("                                 ****PEAK HOURS****                                       ");
+		System.out.println("                                 ****PEEK HOURS****                                       ");
 	
-		double i = 0;
+		double peek = 0;
 		if(hour >= 17 && hour <= 19) {
-			System.out.println("IT IS A PEAK HOUR..SO 1.25% PER KM PRICE");
-			i=(u+(d*0.0125));//It provides some discount prices..
-			System.out.println("YOUR BILL AMOUNT IS: "+i+" Rs/-");
+			System.out.println("IT IS A PEEK HOUR..SO 1.25% PER KM PRICE");
+			peek=(gst+(km*0.0125));//It provides some discount prices..
+			System.out.println("YOUR BILL AMOUNT IS: "+peek+" Rs/-");
 		    
 		}
 		else {
 			System.out.println("IT IS NOT A PEAK HOUR");
-			System.out.println("YOUR BILL AMOUNT IS: "+u+" Rs/-");
+			System.out.println("YOUR BILL AMOUNT IS: "+gst+" Rs/-");
 		}
 		
 	    //Level 7
@@ -146,19 +146,19 @@ public class LevelExample {
 	    Period period=Period.between(dateOfBirth,tod);
 	    int age=period.getYears();
 	    System.out.println("Age : "+age);
-	    double f=u;double i1=i;
+	    double finalAmount=gst;double peek1=peek;
 	    if((age>=60)&&(hour >= 17 && hour <= 19)) {
-	    	f= i1*0.5;//if peak hour and above 60 age 
-	    	System.out.println("YOUR BILL AMOUNT IS : "+f+" Rs/-");
+	    	finalAmount= peek1*0.5;//if peak hour and above 60 age 
+	    	System.out.println("YOUR BILL AMOUNT IS : "+finalAmount+" Rs/-");
 	    	System.out.println("YOUR AGE IS GREATER THAN 60...SO YOU HAVE 50% OFFER");
 	    }
 	    else if(age<=60) {
-	    	f=u*0.5;//if age is above 60 
-	    	System.out.println("YOUR BILL AMOUNT IS : "+u+" Rs/-");
+	    	finalAmount=gst*0.5;//if age is above 60 
+	    	System.out.println("YOUR BILL AMOUNT IS : "+gst+" Rs/-");
 	    	System.out.println("YOUR AGE IS GREATER THAN 60...SO YOU HAVE 50% OFFER");
 	    }
 	    else {
-	   System.out.println("YOUR BILL AMOUNT IS : "+f+" Rs/-");//if not peak hour and not above 60 age
+	   System.out.println("YOUR BILL AMOUNT IS : "+finalAmount+" Rs/-");//if not peek hour and not above 60 age
 	    }
 	   System.out.println("THANK YOU!!!...");
 	    o.close();
